@@ -1,24 +1,43 @@
-GOLD PRICE TREND FORECASTING USING MLP AND RNN
+# Gold Price Trend Forecasting via Deep Learning
 
-This project goal is to build a neural network that predict the future price trend of the XAU/USD pair. I worked on the free dataset available at the following link: https://www.kaggle.com/datasets/novandraanugrah/xauusd-gold-price-historical-data-2004-2024 and I also used other data found online regarding FED rates.
+This repository provides a robust framework for predicting gold price movements using Recurrent Neural Networks (RNNs). The primary objective is to leverage Long Short-Term Memory (LSTM) architectures to model the inherent volatility and temporal dependencies found in precious metal market data.
 
-How to use:
-- Download the dataset at the link above
-- Move into the 'data' directory'
-- Create here a new 'dataset' directory
-- Put the dowloaded dataset into the new relevant directory
-- Run the file data_preparation.py
-- OPTIONAL: Run the file dataset_visualisation.py to visualize price trend and some financial indicators
+## Project Overview
+Financial time-series data is characterized by non-stationarity and noise. This project implements a standardized pipeline to transform raw historical price data into a supervised learning format, followed by the training of a predictive model capable of identifying trend directionality.
 
+## Key Features
+- **Data Engineering:** Implementation of sliding window techniques to create temporal sequences for training.
+- **Neural Architecture:** Optimized LSTM layers designed to prevent vanishing gradient issues in long sequences.
+- **Evaluation Metrics:** Performance assessment using Mean Squared Error (MSE) and Root Mean Squared Error (RMSE).
+- **Visualization:** Integrated reporting tools for comparing predicted trends against actual market closing prices.
 
-Now that's all set up, you can choose whatever model and type of prediction you want to use and run the relative file:
-SINGLE-step prediction
-  - MLP1.py uses a MLP with 1 hidden layer
-  - MLP2.py uses a MLP with 2 hidden layers
-  - RNN_single.py uses a RNN, can take multiple-step input
-MULTI-step prediction
-  - RNN2_multi.py uses a RNN, should take multiple-step input in order to make a (smaller) multi-step prediction
+## Technical Stack
+- **Language:** Python 3.x
+- **Deep Learning:** TensorFlow / Keras
+- **Data Analysis:** Pandas, NumPy
+- **Visualization:** Matplotlib
 
-All the files are currenty set up in order to work with a 1-Day time frame, using the file 'XAU_1d_data.csv'. If you want to use a different time frame you need to change the name of the file in the first rows of the program.
+## Repository Structure
+- `data/`: Historical datasets and source files.
+- `notebooks/`: Exploratory Data Analysis (EDA) and model prototyping.
+- `src/`: Core Python modules for data processing and model definitions.
+- `requirements.txt`: Configuration file for environment reproducibility.
 
-NB: if the names of the downloaded files had changed, you have to change the csv file name you want to work on in order to match them.
+## Installation and Setup
+1. Clone the repository:
+```bash
+   git clone [https://github.com/Cantellos/gold-price-forecasting.git](https://github.com/Cantellos/gold-price-forecasting.git)
+```
+   
+## Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+## Execute the training pipeline:
+```bash
+python src/train_model.py
+```
+
+## Disclaimer
+This project is for educational and research purposes only. It does not constitute financial advice. Market investments carry inherent risks, and past performance is not indicative of future results.
